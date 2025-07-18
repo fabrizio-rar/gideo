@@ -35,7 +35,7 @@ func main() {
 
 	// Serve the generated content
 	// TODO: This is wrong, it should have the output directory as the generated one
-	err = server.ServeContent(conf.Port, "output")
+	err = server.ServeContent(conf.Port, "")
 	if err != nil {
 		fmt.Println("Error serving content:", err)
 		os.Exit(1)

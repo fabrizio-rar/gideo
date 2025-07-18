@@ -22,7 +22,7 @@ func CreateContent(conf *config.Config) error {
 	}
 
 	cmd := exec.Command("ffmpeg", args...)
-	err = cmd.Run()
+	err = cmd.Start()
 	if err != nil {
 		return err
 	}
@@ -43,6 +43,7 @@ func buildArgs(conf *config.Config) ([]string, error) {
 		return nil, err
 	}
 	// This creates the files on the same directory, maybe a generated folder should be created and the files deleted after use has finished
+	// Maybe creating a "gideo_output" directory and then there creating directories for every video/stream
 	args = append(args, outputPath)
 
 	return args, nil
